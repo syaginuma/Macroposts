@@ -5,9 +5,7 @@ class User < ActiveRecord::Base
    validates :email, presence: true, length: { maximum: 255 },
                     format: { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }
-<<<<<<< HEAD
-   has_secure_password
-   
+   validates :body, length: { maximum: 400 }
    has_many :following_relationships, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy
    has_many :following_users, through: :following_relationships, source: :followed
    
@@ -25,9 +23,7 @@ class User < ActiveRecord::Base
    def following?(other_user)
       following_users.include?(other_user)
    end
-=======
-   validates :body, length: { maximum: 400 }
+   
    has_secure_password
    has_many :microposts
->>>>>>> user-profile
 end
