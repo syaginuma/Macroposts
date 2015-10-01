@@ -27,11 +27,6 @@
     <%= render 'follow_form' if logged_in? %>
     <% if @user.microposts.any? %>
       <h3>(<%= @user.microposts.count %>)件の投稿</h3>
-      <ol class="microposts">
-        <%= render @micropost %>
-      </ol>
     <% end %>
   </div>
 </div>
-
-
