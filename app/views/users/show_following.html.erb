@@ -24,9 +24,19 @@
     </div>
   </aside>
   <div class="col-md-8">
-    <%= render 'follow_form' if logged_in? %>
-    <% if @user.microposts.any? %>
-      <h3>(<%= @user.microposts.count %>)件の投稿</h3>
+    <h3>フォロー中(<%= @user.following_users.count %>)</h3>
+    <% if @following_users.any? %>
+      <% @following_users.each do |user| %>
+      <ul class="users">
+        <li>
+          <%= gravatar_for user, size: 52 %>
+          <%= link_to user.name, user %>
+          <section>
+            <%= user.body %>
+          </section>
+        </li>
+      </ul>
+      <% end %>
     <% end %>
   </div>
 </div>
