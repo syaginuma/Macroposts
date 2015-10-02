@@ -9,18 +9,18 @@
     </section>
     <% @user ||= current_user %>
     <div class="stats">
-      <a href="followings_user_path">
+      <%= link_to followings_user_path do %>
         <strong id="following" class="stat">
           <%= @user.following_users.count %>
         </strong>
         フォロー中
-      </a>
-      <a href="followers_user_path">
+      <% end %>
+      <%= link_to followers_user_path do %>
         <strong id="followers" class="stat">
           <%= @user.follower_users.count %>
         </strong>
         フォロワー
-      </a>
+      <% end %>
     </div>
   </aside>
   <div class="col-md-8">
